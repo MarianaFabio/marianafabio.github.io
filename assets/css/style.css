@@ -26,11 +26,13 @@ html {
     font-size: 16px;
 }
 
+/* Texto corrido sem negrito por padrão */
 body {
     font-family: 'Futura', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
+    font-weight: 400; /* Garante que o texto não seja negrito */
     
     /* Proteção contra seleção de texto */
     -webkit-user-select: none;
@@ -80,10 +82,15 @@ a:hover {
     transition: all 0.3s ease;
 }
 
-/* Ajuste do header para centralizar título e alinhar links à esquerda */
+/* Ajuste do header para garantir margens iguais */
 .header .container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    /* Ajuste importante: mudança na distribuição das colunas */
+    grid-template-columns: minmax(auto, 1fr) auto minmax(auto, 1fr);
     align-items: center;
 }
 
@@ -92,23 +99,20 @@ a:hover {
     grid-column: 2;
 }
 
+.logo .name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--accent-color);
+}
+
 .navigation {
     grid-column: 1;
     grid-row: 1;
     justify-self: start;
-}
-
-.social-icons {
-    grid-column: 3;
-    grid-row: 1;
-    justify-self: end;
-}
-
-.logo .name {
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: var(--accent-color);
+    /* Garantindo que não tenha margin negativa */
+    margin-left: 0;
+    padding-left: 10px; /* Ajuste fino para margens iguais */
 }
 
 .navigation ul {
@@ -141,13 +145,18 @@ a:hover {
 }
 
 .social-icons {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
     display: flex;
     align-items: center;
+    padding-right: 10px; /* Ajuste fino para margens iguais */
 }
 
+/* Ícones de redes sociais reduzidos */
 .social-icons a {
-    margin-left: 1.5rem;
-    font-size: 1.2rem;
+    margin-left: 0.9rem; /* Reduzido */
+    font-size: 0.9rem; /* Reduzido ainda mais */
 }
 
 /* Main Content */
@@ -176,10 +185,17 @@ a:hover {
     transform: translateY(-10px);
 }
 
+/* CORREÇÃO: Garantir placeholder nas imagens de projeto */
 .project-image {
     overflow: hidden;
     position: relative;
     padding-top: 66.67%; /* 3:2 aspect ratio */
+    background-color: #e5e5e5; /* Cor de fundo para visualizar tamanho */
+}
+
+/* CORREÇÃO: Remover texto acima da imagem */
+.project-image::before {
+    content: none !important; /* Garantir que não haja texto */
 }
 
 .project-image img {
@@ -235,21 +251,45 @@ a:hover {
     width: 100%;
 }
 
-.prev-project, .next-project {
+/* Botões no mesmo padrão dos links */
+.prev-project, .next-project, .submit-btn {
     padding: 0.5rem 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    transition: all 0.3s ease;
+    border: none;
+    border-radius: 0;
+    background: none;
+    color: #8C8C8C;
+    transition: color 0.3s ease;
+    font-weight: 400;
+    position: relative;
+    font-family: 'Futura', sans-serif;
+    font-size: 0.8rem;
+    cursor: pointer;
 }
 
-.prev-project:hover, .next-project:hover {
+.prev-project::after, .next-project::after, .submit-btn::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
     background-color: var(--accent-color);
-    color: white;
-    border-color: var(--accent-color);
+    transition: width 0.3s ease;
 }
 
+.prev-project:hover, .next-project:hover, .submit-btn:hover {
+    color: var(--accent-color);
+}
+
+.prev-project:hover::after, .next-project:hover::after, .submit-btn:hover::after {
+    width: 100%;
+}
+
+/* Adicionando cor de fundo nas imagens de projetos para visualização */
 .project-detail-image {
     width: 100%;
+    background-color: #e5e5e5; /* Cor de fundo para visualizar tamanho */
+    min-height: 300px; /* Altura mínima para visualização */
 }
 
 .project-detail-content h1 {
@@ -269,8 +309,11 @@ a:hover {
     margin-top: 2rem;
 }
 
+/* Cor de fundo na imagem de about */
 .about-image {
     width: 100%;
+    background-color: #e5e5e5; /* Cor de fundo para visualizar tamanho */
+    min-height: 300px; /* Altura mínima para visualização */
 }
 
 .about-content h1 {
@@ -342,73 +385,167 @@ a:hover {
 }
 
 .submit-btn {
-    background-color: var(--accent-color);
-    color: var(--white);
+    background: none;
+    color: var(--text-color);
     border: none;
     padding: 0.75rem 1.5rem;
-    border-radius: 4px;
+    border-radius: 0;
     font-family: 'Futura', sans-serif;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .submit-btn:hover {
-    background-color: #e52d1e;
+    color: var(--accent-color);
 }
 
-/* Footer */
+/* Footer com texto menor */
 .footer {
     text-align: center;
     padding: 2rem 0;
     margin-top: 3rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem; /* Reduzido de 0.9rem */
 }
 
-/* Responsive Styles */
-@media (max-width: 992px) {
-    .project-detail {
-        grid-template-columns: 1fr;
+/* CORREÇÃO: Menu Hamburguer para Mobile */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    z-index: 1010;
+    position: relative;
+    margin-left: auto; /* Empurra o elemento para a direita */
+}
+
+.menu-toggle span {
+    height: 3px;
+    width: 100%;
+    background-color: var(--text-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Ícones sociais no menu mobile */
+.mobile-social-icons {
+    display: none;
+}
+
+/* Media Queries para dispositivos móveis */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex !important; /* Importante para sobrescrever estilos inline */
     }
     
-    .about-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .header .container {
-        flex-direction: column;
-        align-items: flex-start;
+    /* Ocultar ícones de redes sociais no header em mobile */
+    .header .social-icons {
+        display: none !important; /* Importante para sobrescrever estilos inline */
     }
     
     .navigation {
-        margin: 1rem 0;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        width: 70%;
+        background-color: var(--background-color);
+        flex-direction: column;
+        padding: 80px 20px 30px;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        z-index: 1000;
+        margin-left: 0;
+        display: flex;
+        justify-content: space-between; /* Para posicionar os links no topo e ícones na base */
+    }
+    
+    /* Contenedor para os links de navegação */
+    .navigation-links {
+        width: 100%;
+    }
+    
+    .navigation.active {
+        left: 0;
     }
     
     .navigation ul {
         flex-direction: column;
+        width: 100%;
     }
     
     .navigation li {
-        margin: 0.5rem 0;
+        margin: 1rem 0;
         margin-left: 0;
+        width: 100%;
     }
     
-    .social-icons {
-        margin-top: 1rem;
+    .navigation a {
+        display: block;
+        font-size: 1.1rem;
     }
     
-    .social-icons a {
-        margin-left: 0;
-        margin-right: 1.5rem;
+    .navigation .mobile-social-icons {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 40px;
     }
     
-    .projects-grid {
-        grid-template-columns: 1fr;
+    .navigation .mobile-social-icons a {
+        margin: 0 15px;
+        font-size: 1.2rem;
+        color: var(--text-color);
+    }
+    
+    /* Estilos para menu aberto */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+    
+    /* Overlay para quando o menu estiver aberto */
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 999;
+    }
+    
+    .overlay.active {
+        display: block;
+    }
+    
+    /* CORREÇÃO: Ajustar layout do header em mobile */
+    .header .container {
+        display: flex; /* Muda de grid para flex em mobile */
+        justify-content: space-between;
+        padding: 0 15px;
+        position: relative; /* Para posicionamento absoluto do logo */
+    }
+    
+    /* Centralizar logo */
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
+/* Ajuste para tablets menores */
 @media (max-width: 576px) {
     html {
         font-size: 14px;
@@ -416,5 +553,10 @@ a:hover {
     
     .main {
         margin-top: 150px;
+    }
+    
+    .social-icons a {
+        margin-left: 0.8rem;
+        font-size: 0.9rem;
     }
 }

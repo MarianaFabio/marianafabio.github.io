@@ -1,28 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto - Seu Nome</title>
+    <title>Project - Mariana Fabio</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Adicione a fonte Futura via @font-face ou serviço de fontes -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Header Fixo -->
+    <!-- Header -->
     <header class="header">
         <div class="container">
-            <div class="logo">
-                <a href="index.html" class="name">Mariana Fabio</a>
-            </div>
+            <!-- O botão de menu hamburguer será inserido pelo JavaScript -->
+            
             <nav class="navigation">
                 <ul>
                     <li><a href="index.html">Projects</a></li>
                     <li><a href="about.html">About & Contact</a></li>
                 </ul>
+                <!-- Os ícones sociais para mobile serão inseridos pelo JavaScript -->
             </nav>
+            
+            <div class="logo">
+                <a href="index.html" class="name">MARIANA FABIO</a>
+            </div>
+            
             <div class="social-icons">
                 <a href="https://www.behance.net/marianafabio" target="_blank" aria-label="Behance">
                     <i class="fab fa-behance"></i>
@@ -42,47 +46,52 @@
         <div class="container">
             <div class="project-detail">
                 <div class="project-detail-media">
-                    <img src="assets/images/placeholder-project1.jpg" alt="Nome do Projeto" class="project-detail-image">
+                    <div class="project-detail-image">
+                        <!-- Imagem será carregada via JavaScript -->
+                    </div>
                     
                     <!-- Galeria de imagens adicionais do projeto -->
                     <div class="project-gallery">
                         <div class="gallery-grid">
-                            <img src="assets/images/placeholder-gallery1.jpg" alt="Imagem adicional 1">
-                            <img src="assets/images/placeholder-gallery2.jpg" alt="Imagem adicional 2">
-                            <img src="assets/images/placeholder-gallery3.jpg" alt="Imagem adicional 3">
+                            <div style="background-color: #e5e5e5; width: 100%; height: 200px; margin-top: 20px;"></div>
+                            <div style="background-color: #e5e5e5; width: 100%; height: 200px; margin-top: 20px;"></div>
+                            <div style="background-color: #e5e5e5; width: 100%; height: 200px; margin-top: 20px;"></div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="project-detail-content">
-                    <h1 class="project-detail-title">Nome do Projeto</h1>
-                    
-                    <div class="project-detail-tags">
-                        <span class="tag">Design de UI</span>
-                        <span class="tag">Branding</span>
-                    </div>
+                    <h1 class="project-detail-title">Project Title</h1>
                     
                     <div class="project-detail-description">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed euismod, nisl eget ultricies ultricies, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl. Sed euismod, nisl eget ultricies ultricies, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed euismod, nisl eget ultricies ultricies, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.</p>
                         
-                        <p>Praesent quis lacinia justo. Mauris pellentesque, eros vitae fermentum tempus, risus ipsum lobortis dui, ac dignissim sapien nulla nec urna. Nulla facilisi. Etiam ultrices odio eu arcu tincidunt, ac ultrices nibh tempus.</p>
-                        
-                        <h2>O Desafio</h2>
-                        <p>Suspendisse potenti. Sed id diam vel justo aliquet laoreet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed euismod, nisl eget ultricies ultricies, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.</p>
-                        
-                        <h2>Solução & Resultados</h2>
-                        <p>Aliquam tincidunt turpis vel vehicula mattis. Nulla facilisi. Sed euismod, nisl eget ultricies ultricies, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl. Sed euismod, nisl eget ultricies ultricies, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.</p>
+                        <p>Praesent quis lacinia justo. Mauris pellentesque, eros vitae fermentum tempus, risus ipsum lobortis dui, ac dignissim sapien nulla nec urna. Nulla facilisi.</p>
                     </div>
+                
+                    <h2>The Challenge</h2>
+                    <p>Suspendisse potenti. Sed id diam vel justo aliquet laoreet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed euismod, nisl eget ultricies ultricies.</p>
+                    
+                    <h2>Solution & Results</h2>
+                    <p>Aliquam tincidunt turpis vel vehicula mattis. Nulla facilisi. Sed euismod, nisl eget ultricies ultricies, nisl nisl aliquam nisl, eget aliquam nisl nisl eget nisl.</p>
+                    
+                    <!-- Tags após a descrição 
+                    <div class="project-detail-tags">
+                        <span class="tag">UI Design</span>
+                        <span class="tag">Branding</span>
+                    </div>
+                    -->
                     
                     <div class="project-navigation">
-                        <a href="#" class="prev-project">previous</a>
-                        <a href="#" class="next-project">next</a>
+                        <a href="#" class="prev-project">Previous Project</a>
+                        <a href="#" class="next-project">Next Project</a>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>© 2025 Mariana Fabio. All rights reserved.</p>
